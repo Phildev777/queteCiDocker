@@ -9,12 +9,12 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Goto client and run test
-        run: echo ${{github.base_ref}}  ${{github.ref}}
+        run: echo ${{github.base_ref}}
       - name: Goto client and run tests
         run: cd client && npm i && npm test
   docker:
     needs: test-front
-    if: github.base_ref == 'refs/heads/main'
+    if: github.base_ref == 'main'
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
