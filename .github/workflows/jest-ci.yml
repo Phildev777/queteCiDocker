@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
+      - name: Goto client and run test
+        run: echo ${{github.base_ref}}  ${{github.ref}}
       - name: Goto client and run tests
         run: cd client && npm i && npm test
   docker:
